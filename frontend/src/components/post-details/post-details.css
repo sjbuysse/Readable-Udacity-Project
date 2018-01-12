@@ -1,0 +1,78 @@
+.linebreak {
+  width: 70%;
+  height: 1px; }
+
+.post-edit > div {
+  width: 100%;
+  position: relative;
+  overflow: hidden; }
+  .post-edit > div:not(:first-child) {
+    margin: 0.5rem 0; }
+.post-edit input, .post-edit textarea {
+  width: 100%;
+  border: 2px solid gray;
+  background: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 8px 12px;
+  outline: 0; }
+  .post-edit input:valid, .post-edit textarea:valid {
+    background: white; }
+  .post-edit input:focus, .post-edit textarea:focus {
+    border-color: #f06d06; }
+  .post-edit input:focus + label, .post-edit textarea:focus + label {
+    background: #f06d06;
+    color: white;
+    font-size: 70%;
+    padding: 1px 6px;
+    z-index: 2;
+    text-transform: uppercase; }
+.post-edit label {
+  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+  position: absolute;
+  color: #999;
+  padding: 7px 6px; }
+.post-edit textarea {
+  display: block;
+  height: 6rem; }
+
+.post-edit.go-bottom input, .post-edit.go-bottom textarea {
+  padding: 12px 12px 12px 12px; }
+.post-edit.go-bottom label {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+.post-edit.go-bottom input:focus, .post-edit.go-bottom textarea:focus {
+  padding: 4px 6px 20px 6px; }
+.post-edit.go-bottom input:focus + label, .post-edit.go-bottom textarea:focus + label {
+  top: 100%;
+  margin-top: -16px; }
+
+.post, .post-edit {
+  width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap; }
+  .post-title, .post-edit-title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 0; }
+  .post-pencil, .post-edit-pencil {
+    margin-left: auto;
+    color: #ff8000; }
+  .post-pencil:hover, .post-edit-pencil:hover {
+    color: #b35a00;
+    cursor: pointer; }
+  .post-author, .post-edit-author {
+    width: 100%;
+    font-style: italic;
+    font-weight: 400; }
+  .post-body, .post-edit-body {
+    width: 100%; }
+
+/*# sourceMappingURL=post-details.css.map */

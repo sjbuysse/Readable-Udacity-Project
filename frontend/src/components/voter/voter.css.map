@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,YAAa;EACX,MAAM,EAAE,IAAI;EACZ,KAAK,ECJG,OAAO;EDKf,kBAAQ;IACN,KAAK,ECLO,OAAO;;ADSvB,MAAO;EACL,SAAS,EAAE,IAAI",
+"sources": ["voter.scss","../../styles/colors.scss"],
+"names": [],
+"file": "voter.css"
+}

@@ -1,0 +1,13 @@
+@import '../../styles/colors.scss';
+
+.vote-button {
+  height: 20px;
+  color: $primary;
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.voter {
+  max-width: 60px;
+}

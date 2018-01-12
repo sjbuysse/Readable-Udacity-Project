@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  width: 580px;
+  grid-template-columns: 60px 20px 400px 30px 30px;
+  grid-template-rows: 40px;
+  grid-column-gap: 20px;
+  border-bottom: 1px solid #eee;
+  margin: 1rem auto; }
+  .grid-container > label, .grid-container span {
+    line-height: 40px; }
+
+/*# sourceMappingURL=post-list-item.css.map */

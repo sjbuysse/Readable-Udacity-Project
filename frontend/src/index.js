@@ -1,9 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import './styles/index.css';
+import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import rootReducer from './statemanagement/reducers/root.reducer';
+import * as Api from './util/PostAPI';
+import { addCategory } from './statemanagement/actions/data/categories.actions';
+import { addPost } from "./statemanagement/actions/data/post.actions";
+import thunk from "redux-thunk";
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));
+const enhancers = compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+
+const store = createStore(rootReducer,
+    enhancers);
+
+Api.getCategories().then(categories => {
+    for (const category of categories) {
+        store.dispatch(addCategory(category));
+    }
+});
+Api.getPosts().then(posts => {
+    for (const post of posts) {
+        store.dispatch(addPost(post));
+    }
+});
+
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter></Provider>, document.getElementById('root'));
 registerServiceWorker();

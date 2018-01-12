@@ -1,0 +1,10 @@
+.vote-button {
+  height: 20px;
+  color: #ff8000; }
+  .vote-button:hover {
+    color: #b35a00; }
+
+.voter {
+  max-width: 60px; }
+
+/*# sourceMappingURL=voter.css.map */

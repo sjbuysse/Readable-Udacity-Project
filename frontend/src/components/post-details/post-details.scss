@@ -1,0 +1,108 @@
+@import '../../styles/colors.scss';
+
+.linebreak {
+  width: 70%;
+  height: 1px;
+}
+
+.post-edit {
+  > div {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    &:not(:first-child) {
+      margin: 0.5rem 0;
+    }
+  }
+  input, textarea {
+    width: 100%;
+    border: 2px solid gray;
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 8px 12px;
+    outline: 0;
+    &:valid {
+      // Hides the label
+      background: white;
+    }
+    &:focus {
+      border-color: #f06d06;
+    }
+    &:focus + label {
+      background: #f06d06;
+      color: white;
+      font-size: 70%;
+      padding: 1px 6px;
+      z-index: 2;
+      text-transform: uppercase;
+    }
+  }
+  label {
+    transition: // not padding
+            background 0.2s,
+            color 0.2s,
+            top 0.2s,
+            bottom 0.2s,
+            right 0.2s,
+            left 0.2s;
+    position: absolute;
+    color: #999;
+    padding: 7px 6px;
+  }
+  textarea {
+    display: block;
+    height: 6rem;
+  }
+}
+
+.post-edit.go-bottom {
+  input, textarea {
+    padding: 12px 12px 12px 12px;
+  }
+  label {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  input:focus, textarea:focus {
+    padding: 4px 6px 20px 6px;
+  }
+  input:focus + label, textarea:focus + label {
+    top: 100%;
+    margin-top: -16px;
+  }
+}
+
+.post, .post-edit {
+  width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  &-title {
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin: 0;
+  }
+  &-pencil {
+    margin-left: auto;
+    color: $primary;
+  }
+  &-pencil:hover {
+    color: $primary-hover;
+    cursor: pointer;
+  }
+  &-author {
+    width: 100%;
+    font-style: italic;
+    font-weight: 400;
+  }
+  &-body {
+    width: 100%;
+  }
+}
