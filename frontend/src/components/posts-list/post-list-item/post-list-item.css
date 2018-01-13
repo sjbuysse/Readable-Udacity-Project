@@ -1,12 +1,14 @@
-.grid-container {
+.post-list-item-container {
   display: grid;
   width: 580px;
-  grid-template-columns: 60px 20px 400px 30px 30px;
+  grid-template-columns: 20px 20px 430px 40px;
   grid-template-rows: 40px;
   grid-column-gap: 20px;
   border-bottom: 1px solid #eee;
   margin: 1rem auto; }
-  .grid-container > label, .grid-container span {
+  .post-list-item-container > label, .post-list-item-container span {
     line-height: 40px; }
+  .post-list-item-container .post-trash-icon {
+    margin-left: 0.5rem; }
 
 /*# sourceMappingURL=post-list-item.css.map */

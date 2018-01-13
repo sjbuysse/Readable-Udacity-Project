@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_POST } from 'statemanagement/actions/data/post.actions';
+import { ADD_POST, UPDATE_POST, REMOVE_POST } from 'statemanagement/actions/data/post.actions';
 
 const initialPostState = {};
 
@@ -9,6 +9,11 @@ export const postReducer = (state = initialPostState, action) => {
                 ...state,
                 [action.post.id] : action.post
             };
+        case(REMOVE_POST):
+            const newState = Object.assign({}, state)
+            delete newState[action.postId];
+            return newState;
+
         case(UPDATE_POST):
             return {
                 ...state,

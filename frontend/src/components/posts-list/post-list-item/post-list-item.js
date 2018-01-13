@@ -6,11 +6,12 @@ import { setEditing } from "statemanagement/actions/containers/active-post.actio
 import { connect } from 'react-redux';
 import './post-list-item.css'
 import FaPencil from 'react-icons/lib/fa/pencil';
+import FaTrash from 'react-icons/lib/fa/trash';
+import { deletePost } from "../../../statemanagement/actions/data/post.actions";
 
 const mapStateToProps = (state, ownProps) => {
     const {post} = ownProps;
     return {
-        editing: state.containers.activePost.editing,
         post
     }
 };
@@ -18,17 +19,24 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     upVote: (id) => dispatch(saveUpVote(id)),
     downVote: (id) => dispatch(saveDownVote(id)),
-    setEditing: (setEdit) => dispatch(setEditing(setEdit))
+    setEditing: (setEdit) => dispatch(setEditing(setEdit)),
+    remove: (post) => dispatch(deletePost(post.id))
 });
 
-function PostListItem({post, editing, upVote, downVote}) {
+function PostListItem({post, upVote, downVote, history, setEditing, remove}) {
     return (
-        <div className="grid-container">
+        <div className="post-list-item-container">
             <Voter id={post.id} voteUp={upVote} voteDown={downVote}/>
             <span>{post.voteScore}</span>
             <label><Link to={'/post/' + post.id}>{post.title}</Link></label>
             <span>
-            <FaPencil onClick={() => setEditing(true)} className="post-pencil"/>
+            <FaPencil onClick={() => {
+                setEditing(true);
+                history.push('/posts/' + post.id);
+            }} className="post-pencil-icon"/>
+            <FaTrash onClick={() => {
+                remove(post)
+            }} className="post-trash-icon"/>
             </span>
         </div>
     )

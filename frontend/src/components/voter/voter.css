@@ -2,7 +2,8 @@
   height: 20px;
   color: #ff8000; }
   .vote-button:hover {
-    color: #b35a00; }
+    color: #b35a00;
+    cursor: pointer; }
 
 .voter {
   max-width: 60px; }

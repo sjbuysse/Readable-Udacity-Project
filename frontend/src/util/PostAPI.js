@@ -25,13 +25,13 @@ export const vote = (entity, id, option) =>
         {
             method: 'POST',
             body: JSON.stringify({
-                    'option': option
-                }),
+                'option': option
+            }),
             headers
         }).then(response => response.json());
 
-export const update = (entity, post) =>
-    fetch(`${api}/${entity}/${post.id}`,
+export const updatePost = (post) =>
+    fetch(`${api}/posts/${post.id}`,
         {
             method: 'PUT',
             body: JSON.stringify({
@@ -40,11 +40,23 @@ export const update = (entity, post) =>
             }),
             headers
         }).then(response => response.json());
-// export const remove = (contact) =>
-//     fetch(`${api}/contacts/${contact.id}`, { method: 'DELETE', headers })
-//         .then(res => res.json())
-//         .then(data => data.contact)
-//
+
+export const add = (post) =>
+    fetch(`${api}/posts`,
+        {
+            method: 'POST',
+            body: JSON.stringify(post),
+            headers
+        }).then(response => response.json());
+
+export const remove = (postId) =>
+    fetch(`${api}/posts/${postId}`,
+        {
+            method: 'DELETE',
+            headers
+        })
+        .then(res => res.json());
+
 // export const create = (body) =>
 //     fetch(`${api}/contacts`, {
 //         method: 'POST',

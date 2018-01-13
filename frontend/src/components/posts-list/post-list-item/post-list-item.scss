@@ -1,7 +1,8 @@
-.grid-container {
+@import '../../../styles/variables';
+.post-list-item-container {
   display: grid;
-  width: 580px;
-  grid-template-columns: 60px 20px 400px 30px 30px;
+  width: $container-width;
+  grid-template-columns: 20px 20px 430px 40px;
   grid-template-rows: 40px;
   grid-column-gap: 20px;
   border-bottom: 1px solid #eee;
@@ -9,5 +10,9 @@
   > label, span {
     line-height: 40px;
   }
+  & .post-trash-icon {
+    margin-left: 0.5rem;
+  }
 }
+
 

@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../post-details.css';
-import FaPencil from 'react-icons/lib/fa/pencil';
 import { setEditing } from 'statemanagement/actions/containers/active-post.actions';
 import { saveUpdatedPost } from 'statemanagement/actions/data/post.actions';
+import Dropdown from 'components/dropdown/dropdown';
+import uuidv1 from 'uuid/v1';
+import { savePost } from "statemanagement/actions/data/post.actions";
 
-class PostDetails extends Component {
+class NewPostForm extends Component {
     state = {
-        post: null
-    };
-
-    componentWillReceiveProps = (props) => {
-        this.setState({post: props.post});
-    };
-
-    componentDidMount = () => {
-        this.setState({post: this.props.post});
-    };
-
-    componentWillUnmount = () => {
-        this.props.setEditing(false);
+        post: {
+            id: '',
+            timestamp: null,
+            title: '',
+            body: '',
+            author: '',
+            category: '',
+            voteScore: 0,
+            deleted: false,
+            commentCount: 0
+        }
     };
 
     handleInputChange = (key, value) => {
@@ -31,16 +30,26 @@ class PostDetails extends Component {
             }
         })
     };
-    updatePostWithFormValues = (event) => {
+
+    submitPost = (event) => {
         event.preventDefault();
-        this.props.updatePost(this.state.post);
-        this.props.setEditing(false);
-    }
+        this.setState((prevState) => ({
+            post: {
+                ...prevState.post,
+                id: uuidv1(),
+                timestamp: Date.now()
+            }
+        }), () => {
+            this.props.savePost(this.state.post);
+            this.props.history.push('/');
+        });
+    };
+
     render = () => {
-        const {post, editing, setEditing} = this.props;
-        return (post && this.state.post) ? (
-            editing ? (
-                <form onSubmit={this.updatePostWithFormValues} className="post-edit go-bottom">
+        const {categories} = this.props;
+        return (
+            <div className="post-edit">
+                <form onSubmit={this.submitPost} className="post-edit go-bottom">
                     <div className="text-input-wrapper">
                         <input id="title" type="text" name="title" value={this.state.post.title}
                                onChange={(event) => this.handleInputChange('title', event.target.value)} required/>
@@ -53,6 +62,9 @@ class PostDetails extends Component {
                         <label htmlFor="author">Author</label>
                     </div>
                     <div className="linebreak"></div>
+                    <Dropdown onSelect={(selection) => this.handleInputChange('category', selection)} label='Category'
+                              options={categories}/>
+                    <div className="linebreak"></div>
                     <div className="text-input-wrapper">
                         <textarea id="body" type="text" name="body" value={this.state.post.body}
                                   onChange={(event) => this.handleInputChange('body', event.target.value)} required/>
@@ -60,29 +72,17 @@ class PostDetails extends Component {
                     </div>
                     <input value="Submit" type="submit"/>
                 </form>
-            ) : (
-                <div className="post">
-                    <h2 className="post-title">{this.props.post.title}</h2>
-                    <FaPencil onClick={() => setEditing(!editing)} className="post-pencil-icon"/>
-                    <h3 className="post-author">{post.author}</h3>
-                    <p className="post-body">{post.body}</p>
-                </div>
-            )
-        ) : null;
+            </div>
+        )
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const {id} = ownProps;
-    return {
-        post: state.data.posts[id],
-        editing: state.containers.activePost.editing
-    }
-};
-
 const mapDispatchToProps = dispatch => ({
-    updatePost: updatedPost => dispatch(saveUpdatedPost(updatedPost)),
-    setEditing: setEdit => dispatch(setEditing(setEdit))
+    savePost: post => dispatch(savePost(post)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostDetails);
+const mapStateToProps = (state, ownProps) => ({
+    categories: Object.keys(state.data.categories).map(cat => state.data.categories[cat].name)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPostForm);
