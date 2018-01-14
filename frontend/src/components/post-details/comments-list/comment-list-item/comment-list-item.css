@@ -1,0 +1,8 @@
+.edit-comment {
+  display: flex; }
+  .edit-comment .text-input-wrapper {
+    width: 300%; }
+  .edit-comment > .form-buttons > .submit-button {
+    margin: 0 1rem; }
+
+/*# sourceMappingURL=comment-list-item.css.map */

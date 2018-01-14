@@ -15,6 +15,41 @@ export const getPosts = () =>
     fetch(`${api}/posts`, {headers})
         .then(res => res.json());
 
+export const getPost = (postId) =>
+    fetch(`${api}/posts/${postId}`, {headers})
+        .then(res => res.json());
+
+export const getComments = (postId) =>
+    fetch(`${api}/posts/${postId}/comments`, {headers})
+        .then(res => res.json());
+
+export const removeComment = (commentId) =>
+    fetch(`${api}/comments/${commentId}`,
+        {
+            method: 'DELETE',
+            headers
+        })
+        .then(res => res.json());
+
+export const updateComment = (comment) =>
+    fetch(`${api}/comments/${comment.id}`,
+        {
+            method: 'PUT',
+            body: JSON.stringify({
+                'timestamp': comment.timestamp,
+                'body': comment.body
+            }),
+            headers
+        }).then(response => response.json());
+
+export const addComment = (comment) =>
+    fetch(`${api}/comments`,
+        {
+            method: 'POST',
+            body: JSON.stringify(comment),
+            headers
+        }).then(response => response.json());
+
 export const getCategories = () =>
     fetch(`${api}/categories`, {headers})
         .then(res => res.json())
@@ -57,12 +92,4 @@ export const remove = (postId) =>
         })
         .then(res => res.json());
 
-// export const create = (body) =>
-//     fetch(`${api}/contacts`, {
-//         method: 'POST',
-//         headers: {
-//             ...headers,
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(body)
-//     }).then(res => res.json())
+

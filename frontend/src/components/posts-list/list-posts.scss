@@ -1,17 +1,18 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
+@import '../../styles/colors';
 
-.list-posts {
-  width: $container-width;
-  margin: 0 auto;
-}
 .sorting-and-categories-wrapper {
+  width: $container-width;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1.5rem 0;
 }
 
 .navigation-categories {
   list-style: none;
-  text-align: right;
-  margin: 0 0 0 auto;
+  align-self: flex-end;
+  margin: 0 0 0 0;
   padding: 0;
   &-item {
     font-size: 0.8rem;
@@ -19,5 +20,35 @@
     padding: 0 1rem 0 0;
     text-transform: uppercase;
     display: inline-block;
+    &.selected a {
+      color: $primary;
+    }
+  }
+}
+
+.add-post-button {
+  padding: 12px;
+  border: 2px solid $primary;
+  cursor: pointer;
+  a {
+    color: $primary;
+  }
+  &:hover {
+    border: 2px solid $primary-hover;
+    a {
+      color: $primary-hover;
+    }
+  }
+}
+
+.post-list-item-header {
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  .post-details {
+    margin-top: 0.3rem;
+    width: 100%;
+    font-size: 0.8rem;
+    font-style: italic;
   }
 }

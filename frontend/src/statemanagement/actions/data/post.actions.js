@@ -34,6 +34,10 @@ export const saveUpdatedPost = (post) => (dispatch) => (
         .then(updatedPost => dispatch(updatePost(updatedPost)))
 );
 
+export const fetchPost = (postId) => (dispatch) => (
+    Api.getPost(postId).then(post => dispatch(updatePost(post)))
+);
+
 export const savePost = (post) => (dispatch) => (
     Api.add(post)
         .then(post => dispatch(addPost(post)))
@@ -42,4 +46,12 @@ export const savePost = (post) => (dispatch) => (
 export const deletePost = (postId) => (dispatch) => (
     Api.remove(postId)
         .then(() => dispatch(removePost(postId)))
-)
+);
+
+export const fetchPosts = () => (dispatch) => (
+    Api.getPosts().then(posts => {
+        for (const post of posts) {
+            dispatch(addPost(post));
+        }
+    })
+);

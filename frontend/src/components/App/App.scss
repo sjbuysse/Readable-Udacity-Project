@@ -1,0 +1,18 @@
+@import '../../styles/variables.scss';
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  width: $container-width;
+  margin: 0 auto;
+  h1 {
+    margin: 2rem auto;
+    text-transform: uppercase;
+    a {
+      text-decoration: none;
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}

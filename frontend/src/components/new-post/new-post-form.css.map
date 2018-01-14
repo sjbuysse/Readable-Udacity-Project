@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAGA,UAAW;EACT,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG",
-"sources": ["new-post-form.scss"],
+"mappings": "AAGA,SAAS;EACP,KAAK,ECJW,KAAK;EDKrB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI",
+"sources": ["new-post-form.scss","../../styles/variables.scss"],
 "names": [],
 "file": "new-post-form.css"
 }

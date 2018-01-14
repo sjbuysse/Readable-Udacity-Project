@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setEditing } from 'statemanagement/actions/containers/active-post.actions';
-import { saveUpdatedPost } from 'statemanagement/actions/data/post.actions';
 import Dropdown from 'components/dropdown/dropdown';
 import uuidv1 from 'uuid/v1';
 import { savePost } from "statemanagement/actions/data/post.actions";
+import './new-post-form.css';
 
 class NewPostForm extends Component {
     state = {
@@ -48,8 +47,8 @@ class NewPostForm extends Component {
     render = () => {
         const {categories} = this.props;
         return (
-            <div className="post-edit">
-                <form onSubmit={this.submitPost} className="post-edit go-bottom">
+            <div className="new-post">
+                <form onSubmit={this.submitPost} className="form-wrapper go-bottom">
                     <div className="text-input-wrapper">
                         <input id="title" type="text" name="title" value={this.state.post.title}
                                onChange={(event) => this.handleInputChange('title', event.target.value)} required/>
@@ -63,7 +62,7 @@ class NewPostForm extends Component {
                     </div>
                     <div className="linebreak"></div>
                     <Dropdown onSelect={(selection) => this.handleInputChange('category', selection)} label='Category'
-                              options={categories}/>
+                              options={categories.map(category => ({label: category}))}/>
                     <div className="linebreak"></div>
                     <div className="text-input-wrapper">
                         <textarea id="body" type="text" name="body" value={this.state.post.body}

@@ -1,14 +1,14 @@
-.list-posts {
-  width: 580px;
-  margin: 0 auto; }
-
 .sorting-and-categories-wrapper {
-  display: flex; }
+  width: 580px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1.5rem 0; }
 
 .navigation-categories {
   list-style: none;
-  text-align: right;
-  margin: 0 0 0 auto;
+  align-self: flex-end;
+  margin: 0 0 0 0;
   padding: 0; }
   .navigation-categories-item {
     font-size: 0.8rem;
@@ -16,5 +16,28 @@
     padding: 0 1rem 0 0;
     text-transform: uppercase;
     display: inline-block; }
+    .navigation-categories-item.selected a {
+      color: #ff8000; }
+
+.add-post-button {
+  padding: 12px;
+  border: 2px solid #ff8000;
+  cursor: pointer; }
+  .add-post-button a {
+    color: #ff8000; }
+  .add-post-button:hover {
+    border: 2px solid #b35a00; }
+    .add-post-button:hover a {
+      color: #b35a00; }
+
+.post-list-item-header {
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap; }
+  .post-list-item-header .post-details {
+    margin-top: 0.3rem;
+    width: 100%;
+    font-size: 0.8rem;
+    font-style: italic; }
 
 /*# sourceMappingURL=list-posts.css.map */

@@ -1,0 +1,9 @@
+.edit-comment {
+  display: flex;
+  & .text-input-wrapper {
+    width: 300%;
+  }
+  & > .form-buttons > .submit-button {
+    margin: 0 1rem;
+  }
+}

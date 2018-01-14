@@ -9,4 +9,13 @@ body {
 html {
   font: 14px/1.4 Sans-Serif; }
 
+/* unvisited link */
+a:link,
+a:visited,
+a:active {
+  color: black; }
+
+a:hover {
+  color: gray; }
+
 /*# sourceMappingURL=index.css.map */

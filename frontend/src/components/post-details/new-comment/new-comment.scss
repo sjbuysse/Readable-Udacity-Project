@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+@import '../../../styles/colors';
+
+.new-comment{
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  > .form-wrapper > .submit-button {
+    cursor: pointer;
+    color: $primary;
+    border: 2px solid $primary;
+    &:hover {
+      color: $primary-hover;
+      border: 2px solid $primary-hover;
+    }
+  }
+}

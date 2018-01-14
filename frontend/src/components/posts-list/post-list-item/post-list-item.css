@@ -1,13 +1,11 @@
 .post-list-item-container {
   display: grid;
-  width: 580px;
+  align-items: center;
   grid-template-columns: 20px 20px 430px 40px;
-  grid-template-rows: 40px;
+  grid-template-rows: 50px;
   grid-column-gap: 20px;
   border-bottom: 1px solid #eee;
-  margin: 1rem auto; }
-  .post-list-item-container > label, .post-list-item-container span {
-    line-height: 40px; }
+  padding: 0.2rem 0; }
   .post-list-item-container .post-trash-icon {
     margin-left: 0.5rem; }
 

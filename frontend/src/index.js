@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './statemanagement/reducers/root.reducer';
 import * as Api from './util/PostAPI';
 import { addCategory } from './statemanagement/actions/data/categories.actions';
-import { addPost } from "./statemanagement/actions/data/post.actions";
+import { fetchPosts } from "./statemanagement/actions/data/post.actions";
 import thunk from "redux-thunk";
 
 const enhancers = compose(
@@ -25,11 +25,7 @@ Api.getCategories().then(categories => {
         store.dispatch(addCategory(category));
     }
 });
-Api.getPosts().then(posts => {
-    for (const post of posts) {
-        store.dispatch(addPost(post));
-    }
-});
+store.dispatch(fetchPosts());
 
 ReactDOM.render(
     <Provider store={store}>

@@ -6,7 +6,8 @@
   height: 1px;
 }
 
-.post-edit {
+.form-wrapper {
+  width: 100%;
   > .text-input-wrapper {
     width: 100%;
     position: relative;
@@ -59,7 +60,7 @@
   }
 }
 
-.post-edit.go-bottom {
+.form-wrapper.go-bottom {
   input, textarea {
     padding: 12px 12px 12px 12px;
   }
@@ -79,12 +80,13 @@
 }
 
 .post, .post-edit {
-  width: $container-width;
-  margin: 0 auto;
-  padding: 1rem;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
+  width: $container-width;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
   &-title {
     text-transform: uppercase;
     font-size: 1rem;
@@ -99,11 +101,45 @@
     cursor: pointer;
   }
   &-author {
+    margin: 2rem 0;
     width: 100%;
-    font-style: italic;
     font-weight: 400;
+    font-style: italic;
   }
   &-body {
     width: 100%;
+  }
+}
+
+.form-buttons {
+  display: flex;
+  .submit-button {
+    cursor: pointer;
+    color: $primary;
+    border: 2px solid $primary;
+    &:hover {
+      color: $primary-hover;
+      border: 2px solid $primary-hover;
+    }
+  }
+  .cancel-button {
+    cursor: pointer;
+    .post-edit > .form-wrapper > & {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.post-details-header {
+  display: grid;
+  grid-template-columns: 20px 20px 430px 40px;
+  grid-template-rows: 40px;
+  grid-column-gap: 20px;
+  align-items: center;
+  > label, span {
+    line-height: 40px;
+  }
+  & .post-trash-icon {
+    margin-left: 0.5rem;
   }
 }

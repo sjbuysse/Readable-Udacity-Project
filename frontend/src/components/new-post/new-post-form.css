@@ -1,5 +1,8 @@
-.linebreak {
-  width: 70%;
-  height: 1px; }
+.new-post {
+  width: 580px;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap; }
 
 /*# sourceMappingURL=new-post-form.css.map */

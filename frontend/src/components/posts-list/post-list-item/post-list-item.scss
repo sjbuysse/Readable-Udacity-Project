@@ -1,15 +1,12 @@
 @import '../../../styles/variables';
 .post-list-item-container {
   display: grid;
-  width: $container-width;
+  align-items: center;
   grid-template-columns: 20px 20px 430px 40px;
-  grid-template-rows: 40px;
+  grid-template-rows: 50px;
   grid-column-gap: 20px;
   border-bottom: 1px solid #eee;
-  margin: 1rem auto;
-  > label, span {
-    line-height: 40px;
-  }
+  padding: 0.2rem 0;
   & .post-trash-icon {
     margin-left: 0.5rem;
   }

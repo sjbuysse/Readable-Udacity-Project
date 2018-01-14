@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACZ,OAAO,EAAE,IAAI;EACb,iCAAsB;IACpB,KAAK,EAAE,IAAI;EAEb,8CAAmC;IACjC,MAAM,EAAE,MAAM",
+"sources": ["comment-list-item.scss"],
+"names": [],
+"file": "comment-list-item.css"
+}

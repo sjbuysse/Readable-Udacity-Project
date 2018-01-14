@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,YAAY;EACV,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,6CAAiC;IAC/B,MAAM,EAAE,OAAO;IACf,KAAK,ECTC,OAAO;IDUb,MAAM,EAAE,iBAAkB;IAC1B,mDAAQ;MACN,KAAK,ECXK,OAAO;MDYjB,MAAM,EAAE,iBAAwB",
+"sources": ["new-comment.scss","../../../styles/colors.scss"],
+"names": [],
+"file": "new-comment.css"
+}

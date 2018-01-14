@@ -1,0 +1,13 @@
+.new-comment {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap; }
+  .new-comment > .form-wrapper > .submit-button {
+    cursor: pointer;
+    color: #ff8000;
+    border: 2px solid #ff8000; }
+    .new-comment > .form-wrapper > .submit-button:hover {
+      color: #b35a00;
+      border: 2px solid #b35a00; }
+
+/*# sourceMappingURL=new-comment.css.map */

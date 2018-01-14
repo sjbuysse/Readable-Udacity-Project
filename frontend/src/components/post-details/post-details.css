@@ -2,62 +2,65 @@
   width: 100%;
   height: 1px; }
 
-.post-edit > .text-input-wrapper {
-  width: 100%;
-  position: relative;
-  overflow: hidden; }
-  .post-edit > .text-input-wrapper:not(:first-child) {
-    margin: 0.5rem 0; }
-.post-edit input, .post-edit textarea {
-  width: 100%;
-  border: 2px solid gray;
-  background: none;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  padding: 8px 12px;
-  outline: 0; }
-  .post-edit input:valid, .post-edit textarea:valid {
-    background: white; }
-  .post-edit input:focus, .post-edit textarea:focus {
-    border-color: #f06d06; }
-  .post-edit input:focus + label, .post-edit textarea:focus + label {
-    background: #f06d06;
-    color: white;
-    font-size: 70%;
-    padding: 1px 6px;
-    z-index: 2;
-    text-transform: uppercase; }
-.post-edit label {
-  transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
-  position: absolute;
-  color: #999;
-  padding: 7px 6px; }
-.post-edit textarea {
-  display: block;
-  height: 6rem; }
+.form-wrapper {
+  width: 100%; }
+  .form-wrapper > .text-input-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden; }
+    .form-wrapper > .text-input-wrapper:not(:first-child) {
+      margin: 0.5rem 0; }
+  .form-wrapper input, .form-wrapper textarea {
+    width: 100%;
+    border: 2px solid gray;
+    background: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 8px 12px;
+    outline: 0; }
+    .form-wrapper input:valid, .form-wrapper textarea:valid {
+      background: white; }
+    .form-wrapper input:focus, .form-wrapper textarea:focus {
+      border-color: #f06d06; }
+    .form-wrapper input:focus + label, .form-wrapper textarea:focus + label {
+      background: #f06d06;
+      color: white;
+      font-size: 70%;
+      padding: 1px 6px;
+      z-index: 2;
+      text-transform: uppercase; }
+  .form-wrapper label {
+    transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+    position: absolute;
+    color: #999;
+    padding: 7px 6px; }
+  .form-wrapper textarea {
+    display: block;
+    height: 6rem; }
 
-.post-edit.go-bottom input, .post-edit.go-bottom textarea {
+.form-wrapper.go-bottom input, .form-wrapper.go-bottom textarea {
   padding: 12px 12px 12px 12px; }
-.post-edit.go-bottom label {
+.form-wrapper.go-bottom label {
   top: 0;
   bottom: 0;
   left: 0;
   width: 100%; }
-.post-edit.go-bottom input:focus, .post-edit.go-bottom textarea:focus {
+.form-wrapper.go-bottom input:focus, .form-wrapper.go-bottom textarea:focus {
   padding: 4px 6px 20px 6px; }
-.post-edit.go-bottom input:focus + label, .post-edit.go-bottom textarea:focus + label {
+.form-wrapper.go-bottom input:focus + label, .form-wrapper.go-bottom textarea:focus + label {
   top: 100%;
   margin-top: -16px; }
 
 .post, .post-edit {
-  width: 580px;
-  margin: 0 auto;
-  padding: 1rem;
   text-align: left;
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  width: 580px;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee; }
   .post-title, .post-edit-title {
     text-transform: uppercase;
     font-size: 1rem;
@@ -69,10 +72,36 @@
     color: #b35a00;
     cursor: pointer; }
   .post-author, .post-edit-author {
+    margin: 2rem 0;
     width: 100%;
-    font-style: italic;
-    font-weight: 400; }
+    font-weight: 400;
+    font-style: italic; }
   .post-body, .post-edit-body {
     width: 100%; }
+
+.form-buttons {
+  display: flex; }
+  .form-buttons .submit-button {
+    cursor: pointer;
+    color: #ff8000;
+    border: 2px solid #ff8000; }
+    .form-buttons .submit-button:hover {
+      color: #b35a00;
+      border: 2px solid #b35a00; }
+  .form-buttons .cancel-button {
+    cursor: pointer; }
+    .post-edit > .form-wrapper > .form-buttons .cancel-button {
+      margin-left: 1rem; }
+
+.post-details-header {
+  display: grid;
+  grid-template-columns: 20px 20px 430px 40px;
+  grid-template-rows: 40px;
+  grid-column-gap: 20px;
+  align-items: center; }
+  .post-details-header > label, .post-details-header span {
+    line-height: 40px; }
+  .post-details-header .post-trash-icon {
+    margin-left: 0.5rem; }
 
 /*# sourceMappingURL=post-details.css.map */

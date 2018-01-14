@@ -9,9 +9,9 @@ class Dropdown extends Component {
     }
 
     handleSelection = (selection) => {
-        this.setState({selection});
-        if (this.props.onSelect) {
-            this.props.onSelect(selection);
+        this.setState({selection: selection.label});
+        if (selection.action) {
+            selection.action();
         }
     }
 
@@ -31,9 +31,9 @@ class Dropdown extends Component {
                 </div>
                 <div className="dropdown-content">
                     {options.map(option => (
-                        <div key={option} onClick={() => this.handleSelection(option)}>
-                            {(option === selection) && (<FaCheck size={10} className="check-icon"/>)}
-                            {option}
+                        <div key={option.label} onClick={() => this.handleSelection(option)}>
+                            {(option.label === selection) && (<FaCheck size={10} className="check-icon"/>)}
+                            {option.label}
                         </div>
                     ))}
                 </div>

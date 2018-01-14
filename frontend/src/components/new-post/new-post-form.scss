@@ -1,8 +1,10 @@
 @import '../../styles/colors.scss';
 @import '../../styles/variables.scss';
 
-.linebreak {
-  width: 70%;
-  height: 1px;
+.new-post{
+  width: $container-width;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
-

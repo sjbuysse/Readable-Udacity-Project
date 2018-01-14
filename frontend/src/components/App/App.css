@@ -1,0 +1,14 @@
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  width: 580px;
+  margin: 0 auto; }
+  .app h1 {
+    margin: 2rem auto;
+    text-transform: uppercase; }
+    .app h1 a {
+      text-decoration: none; }
+      .app h1 a:hover {
+        color: black; }
+
+/*# sourceMappingURL=App.css.map */
