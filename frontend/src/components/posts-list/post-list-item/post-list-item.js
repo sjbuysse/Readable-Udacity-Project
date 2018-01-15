@@ -15,7 +15,7 @@ function PostListItem({post, upVote, downVote, history, setEditing, remove}) {
             <Voter id={post.id} voteUp={upVote} voteDown={downVote}/>
             <span>{post.voteScore}</span>
             <div className="post-list-item-header">
-                <Link to={'/post/' + post.id}>
+                <Link to={`/${post.category}/${post.id}`}>
                     <span>{post.title}</span>
                 </Link>
                 <span className="post-details">Written by {post.author} on {(new Date(post.timestamp)).toDateString()} --- {post.commentCount} {(post.commentCount === 1) ? 'comment' : 'comments'}</span>
@@ -23,7 +23,7 @@ function PostListItem({post, upVote, downVote, history, setEditing, remove}) {
             <span>
             <FaPencil onClick={() => {
                 setEditing(true);
-                history.push('/posts/' + post.id);
+                history.push(`/${post.category}/${post.id}`);
             }} className="post-pencil-icon"/>
             <FaTrash onClick={() => {
                 remove(post)

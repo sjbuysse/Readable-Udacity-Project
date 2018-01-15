@@ -13,6 +13,7 @@ class PostDetails extends Component {
     }
     render = () => (
         <div>
+
             <Post id={this.props.id} history={this.props.history}/>
             <CommentsList parentId={this.props.id}/>
             <NewComment saveComment={this.props.saveComment} parentId={this.props.id}/>

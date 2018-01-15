@@ -61,8 +61,8 @@ class NewPostForm extends Component {
                         <label htmlFor="author">Author</label>
                     </div>
                     <div className="linebreak"></div>
-                    <Dropdown onSelect={(selection) => this.handleInputChange('category', selection)} label='Category'
-                              options={categories.map(category => ({label: category}))}/>
+                    <Dropdown label='Category' options={categories.map(category =>
+                                  ({label: category, action: (selection) => this.handleInputChange('category', selection)}))}/>
                     <div className="linebreak"></div>
                     <div className="text-input-wrapper">
                         <textarea id="body" type="text" name="body" value={this.state.post.body}

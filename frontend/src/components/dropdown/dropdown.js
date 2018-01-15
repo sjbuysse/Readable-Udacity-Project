@@ -11,7 +11,7 @@ class Dropdown extends Component {
     handleSelection = (selection) => {
         this.setState({selection: selection.label});
         if (selection.action) {
-            selection.action();
+            selection.action(selection.label);
         }
     }
 
